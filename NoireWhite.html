@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MP3 Player with Playlists</title>
     <style>
-        a {
-            color:black;
-            text-decoration: none;
-            text-align: center;
-        }
          body {
             margin: 0;
             padding: 0;
@@ -19,6 +14,8 @@
             min-height: 100vh;
             background-color: black;
             user-select: none;
+            color: black;
+            text-align: centre;
         }
 
         .player {
@@ -163,6 +160,13 @@
         .bw {
             margin-top: 30px;
             margin-bottom: 30px;
+        }
+
+         @media screen and (max-width: 428px) {
+            body {
+                color: black; /* Set your desired font color */
+                text-align: center;
+            }
         }
 
 
