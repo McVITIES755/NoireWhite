@@ -6,20 +6,25 @@
     <title>MP3 Player with Playlists</title>
     <style>
          body {
-            margin: 0;
-            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(
+            to top,
+            white 0%,
+            white 49.27%,
+            black 49.27%,
+            black 100%
+            );
+
+            justify-content: center;
             display: flex;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: black;
-            user-select: none;
-            color: black;
-            text-align: centre;
-        }
 
-        .playlist {
-            text-align: center;
+            user-select: none;
+            outline: none;
+
+            margin: 0;
+            padding: 0;
         }
 
         .player {
@@ -31,6 +36,7 @@
             padding: 20px;
             transition: background-color 0.3s;
             align-items: center;
+            margin-bottom: 20px;
         }
 
         /* Light Mode Styles */
@@ -40,7 +46,13 @@
         }
 
         .dark-mode {
-            background-color: black;
+            background: linear-gradient(
+            to top,
+            white 0%,
+            white 49.27%,
+            black 49.27%,
+            black 100%
+            );
             color: white;
             
         }
@@ -75,15 +87,19 @@
             color: black;
         }
 
+        .playlist {
+            text-align: center;
+        }
+
         .controls {
-            width: 90%;
+            width: 100%;
+            height: 500px;
             background-color: white;
             padding: 20px;
             border: none;
             align-items: center;
             text-align: center;
             display: inline-block;
-            border-radius: 20px;
         }
 
         .player .playlist {
@@ -116,7 +132,6 @@
             border-width: 5px;
             margin-top: 10px;
             text-align: center;
-            color: black;
         }
 
         .player .audioBar {
@@ -169,7 +184,7 @@
             color: black;
         }
 
-         @media screen and (max-width: 428px) {
+        @media screen and (max-width: 428px) {
             body {
                 color: black; /* Set your desired font color */
                 text-align: center;
