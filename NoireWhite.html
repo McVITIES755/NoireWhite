@@ -2,62 +2,421 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stacked Bottom Bars</title>
-    <link rel="stylesheet" href="Playlist.css"> <!-- Include your CSS file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MP3 Player with Playlists</title>
+    <style>
+         body {
+            width: 100%;
+            background: linear-gradient(
+            to top,
+            white 0%,
+            white 49.27%,
+            black 49.27%,
+            black 100%
+            );
+
+            justify-content: center;
+            display: flex;
+            align-items: center;
+
+            user-select: none;
+            outline: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .player {
+            width: 430px;
+            max-height: 932px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            transition: background-color 0.3s;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Light Mode Styles */
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode {
+            background: linear-gradient(
+            to top,
+            white 0%,
+            white 49.27%,
+            black 49.27%,
+            black 100%
+            );
+            color: white;
+            
+        }
+
+        .audioBar {
+            width: 90%;
+            overflow: hidden;
+            padding: 5px;
+            background-color: white;
+            border-radius: 60px;
+            align-items: center;
+        }
+
+        .coverImg {
+            width: 350px;
+            border-radius: 20px;
+        }
+
+        button {
+            background-color: white;
+            width: 42%;
+            margin: 5px;
+            height: 60px;
+            border-style: solid;
+            font-size: 20px;
+            font-family: Helvetica neue;
+            font-weight: bolder;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .playlist {
+            text-align: center;
+        }
+
+        .controls {
+            width: 100%;
+            height: 500px;
+            background-color: white;
+            padding: 20px;
+            border: none;
+            align-items: center;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .player .playlist {
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 35px;
+            font-weight: bolder ;
+            font-family: Helvetica neue;
+            margin: 0;
+            margin-top: 10px;
+        }
+
+        h3 {
+            font-size: 29px;
+            font-weight: bold;
+            font-family: Helvetica neue;
+            margin: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 87%;
+            height: 50px;
+            font-weight: bold;
+            font-size: 20px;
+            border-color: black;
+            border-width: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .player .audioBar {
+            border-radius: 1px;
+            padding: 10px;
+            color: white;
+        }
+
+        .player select#playlistSelect {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            appearance: none; /* Remove default styling on some browsers */
+            -webkit-appearance: none; /* Remove default styling on Safari */
+            cursor: pointer;
+        }
+
+        .player select#playlistSelect option {
+            background-color: white;
+            color: white;
+        }
+
+        /* Style the play/pause button */
+        .player .audioBar::-webkit-media-controls-play-button {
+            background-color: white;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        /* Style the volume slider */
+        .player .audioBar::-webkit-media-controls-volume-slider {
+            background-color: transparent;
+            height: 4px;
+        }
+
+        /* Style the progress bar */
+        .player .audioBar::-webkit-media-controls-current-time-display,
+        .player .audioBar::-webkit-media-controls-time-remaining-display {
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        .bw {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: black;
+        }
+
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>PLAYLIST SONGS</h1>
-        <div class="bottom-bar">
-            <img src="Space-Woman.jpg">
-            <div class="song-text">
-                <p class="song-name">SONG NAME</p>
-                <p class="artist-name">artist name</p>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <img src="Space-Woman.jpg">
-            <div class="song-text">
-                <p class="song-name">SONG NAME</p>
-                <p class="artist-name">artist name</p>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <img src="Space-Woman.jpg">
-            <div class="song-text">
-                <p class="song-name">SONG NAME</p>
-                <p class="artist-name">artist name</p>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <img src="Space-Woman.jpg">
-            <div class="song-text">
-                <p class="song-name">SONG NAME</p>
-                <p class="artist-name">artist name</p>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <img src="Space-Woman.jpg">
-            <div class="song-text">
-                <p class="song-name">SONG NAME</p>
-                <p class="artist-name">artist name</p>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <img src="Space-Woman.jpg">
-            <div class="song-text">
-                <p class="song-name">SONG NAME</p>
-                <p class="artist-name">artist name</p>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <img src="Space-Woman.jpg">
-            <div class="song-text">
-                <p class="song-name">SONG NAME</p>
-                <p class="artist-name">artist name</p>
+    <div class="player light-mode" id="player">
+        <div class="player">
+            <img id="cover" src="" alt="Cover Image"
+            class="coverImg">
+            <h2 id="songTitle">Song Title</h2>
+            <h3 id="artistName">Artist Name</h3>
+            <div class="controls">
+                <audio id="audioPlayer" class="audioBar" controls autoplay>
+                    Your browser does not support the audio element.
+                </audio>
+                <button id="shuffleButton">SHUFFLE</button>
+                <button id="prevButton">PREVIOUS</button>
+                <button id="playPauseButton">PLAY</button>
+                <button id="nextButton">NEXT</button>
+                <div class="playlist">
+                    <select id="playlistSelect" class="select">
+                        <!-- Playlist options will be added using JavaScript -->
+                    </select>
+                </div>
+                <button class="bw" id="modeToggle">Toggle Dark Mode</button>
             </div>
         </div>
     </div>
+    
+    <script>
+        const playlists = {
+            "PERSONAL PLAYLIST": [
+                {
+                    title: "Unravel",
+                    artist: "TK from 凛として時雨",
+                    cover: "Music-Covers/Cover1.jpg",
+                    src: "Music-Sound-Files/Unravel.mp3"
+                },
+                {
+                    title: "Unstoppable",
+                    artist: "Sia",
+                    cover: "Music-Covers/Cover2.jpg",
+                    src: "Music-Sound-Files/Sia - Unstoppable (Official Audio).mp3"
+                },
+                {
+                    title: "Cheap Thrills",
+                    artist: "Sia",
+                    cover: "Music-Covers/Cover3.jpg",
+                    src: "Music-Sound-Files/Sia - Cheap Thrills (Lyrics) ft. Sean Paul.mp3"
+                },
+                {
+                    title: "Choix De Vie",
+                    artist: "Randall x Anas",
+                    cover: "Music-Covers/Cover4.jpg",
+                    src: "Music-Sound-Files/RANDALL x Anas - Choix de vie (feat Nassi) 4k.mp3"
+                },
+                {
+                    title: "Wahran",
+                    artist: "Randall",
+                    cover: "Music-Covers/Cover5.jpg",
+                    src: "Music-Sound-Files/RANDALL - Wahran (Official Audio).mp3"
+                },
+                {
+                    title: "Akuma No Ko",
+                    artist: "Ai Higuchi",
+                    cover: "Music-Covers/Cover6.jpg",
+                    src: "Music-Sound-Files/ヒグチアイ - 悪魔の子 (アニメスペシャルVer.) _ Ai Higuchi “Akuma no Ko” Anime Special Ver..mp3"
+                },
+                {
+                    title: "Rewrite The Stars",
+                    artist: "Anne-Marie & James Arthur",
+                    cover: "Music-Covers/Cover7.JPG",
+                    src: "Music-Sound-Files/Anne-Marie & James Arthur - Rewrite The Stars [from The Greatest Showman_ Reimagined].mp3"
+                },
+                {
+                    title: "Impossible",
+                    artist: "James Arthur",
+                    cover: "Music-Covers/Cover8.JPG",
+                    src: "Music-Sound-Files/James Arthur - Impossible (Lyrics).mp3"
+                },
+                {
+                    title: "Feel This Moment",
+                    artist: "Pitbull & Christina Aguilera",
+                    cover: "Music-Covers/Cover9.JPG",
+                    src: "Music-Sound-Files/Pitbull - Feel This Moment (Official Video) ft. Christina Aguilera.mp3"
+                },
+                {
+                    title: "Habibi",
+                    artist: "Richy Rich",
+                    cover: "Music-Covers/Cover10.JPG",
+                    src: "Music-Sound-Files/Ricky Rich, Dardan & DJ Gimi-O – Habibi (Albanian Remix) [Official Lyric Video].mp3"
+                },
+                {
+                    title: "The Greatest Show",
+                    artist: "Pan!c At The Disco",
+                    cover: "Music-Covers/Cover11.JPG",
+                    src: "Music-Sound-Files/Panic! At The Disco - The Greatest Show (from The Greatest Showman_ Reimagined) [Official Audio].mp3"
+                },
+                {
+                    title: "Shape Of You",
+                    artist: "Ed Sheeran",
+                    cover: "Music-Covers/Cover12.jpg",
+                    src: "Music-Sound-Files/Ed Sheeran - Shape Of You [Official Lyric Video].mp3"
+                },
+                {
+                    title: "Firework",
+                    artist: "Katy Perry",
+                    cover: "Music-Covers/Cover13.jpg",
+                    src: "Music-Sound-Files/Katy Perry - Firework (Lyrics).mp3"
+                },
+                {
+                    title: "Centuries",
+                    artist: "Fall Out Boy",
+                    cover: "Music-Covers/Cover14.JPG",
+                    src: "Music-Sound-Files/Fall Out Boy - Centuries (Official Video).mp3"
+                },
+                {
+                    title: "Chandelier",
+                    artist: "Sia",
+                    cover: "Music-Covers/Cover15.JPG",
+                    src: "Music-Sound-Files/Sia - Chandelier (Lyrics) _I'm gonna swing from the chandelier From the chandelier_.mp3"
+                },
+                {
+                    title: "Starboy",
+                    artist: "The Weeknd",
+                    cover: "Music-Covers/Cover16.PNG",
+                    src: "Music-Sound-Files/Starboy.mp3"
+                },
+                {
+                    title: "Never Enough",
+                    artist: "Loren Allred",
+                    cover: "Music-Covers/Cover17.jpg",
+                    src: "Music-Sound-Files/The Greatest Showman Cast - Never Enough (Official Audio).mp3"
+                },
+                {
+                    title: "Kaavaalaa",
+                    artist: "Rajinikanth & Tamannah",
+                    cover: "Music-Covers/Cover18.jpg",
+                    src: "Music-Sound-Files/Kaavaalaa (From _Jailer_).mp3"
+                },
+
+                // Add more songs to the playlist
+            ],
+            "Playlist 2": [
+                // Songs for Playlist 2
+            ],
+            // Add more playlists
+        };
+
+        let currentPlaylist = Object.keys(playlists)[0];
+        let currentSongIndex = 0;
+        let isPlaying = false;
+
+        const coverElement = document.getElementById("cover");
+        const songTitleElement = document.getElementById("songTitle");
+        const artistNameElement = document.getElementById("artistName");
+        const audioPlayer = document.getElementById("audioPlayer");
+        const playPauseButton = document.getElementById("playPauseButton");
+        const prevButton = document.getElementById("prevButton");
+        const nextButton = document.getElementById("nextButton");
+        const shuffleButton = document.getElementById("shuffleButton");
+        const playlistSelect = document.getElementById("playlistSelect");
+
+        function loadSong(songIndex) {
+            const song = playlists[currentPlaylist][songIndex];
+            coverElement.src = song.cover;
+            songTitleElement.textContent = song.title;
+            artistNameElement.textContent = song.artist;
+            audioPlayer.src = song.src;
+            if (isPlaying) {
+                audioPlayer.play();
+            }
+        }
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                audioPlayer.pause();
+            } else {
+                audioPlayer.play();
+            }
+            isPlaying = !isPlaying;
+            updatePlayPauseButton();
+        }
+
+        function updatePlayPauseButton() {
+            playPauseButton.textContent = isPlaying ? "Pause" : "Play";
+        }
+
+        function playNextSong() {
+            currentSongIndex = (currentSongIndex + 1) % playlists[currentPlaylist].length;
+            loadSong(currentSongIndex);
+        }
+
+        function playPreviousSong() {
+            currentSongIndex = (currentSongIndex - 1 + playlists[currentPlaylist].length) % playlists[currentPlaylist].length;
+            loadSong(currentSongIndex);
+        }
+
+        function shuffleSongs() {
+            currentSongIndex = Math.floor(Math.random() * playlists[currentPlaylist].length);
+            loadSong(currentSongIndex);
+        }
+
+        function changePlaylist(playlistName) {
+            currentPlaylist = playlistName;
+            currentSongIndex = 0;
+            loadSong(currentSongIndex);
+        }
+
+        function populatePlaylistOptions() {
+            for (const playlistName of Object.keys(playlists)) {
+                const option = document.createElement("option");
+                option.value = playlistName;
+                option.textContent = playlistName;
+                playlistSelect.appendChild(option);
+            }
+            playlistSelect.addEventListener("change", (event) => {
+                changePlaylist(event.target.value);
+            });
+        }
+
+        audioPlayer.addEventListener("ended", playNextSong);
+        playPauseButton.addEventListener("click", togglePlayPause);
+        nextButton.addEventListener("click", playNextSong);
+        prevButton.addEventListener("click", playPreviousSong);
+        shuffleButton.addEventListener("click", shuffleSongs);
+
+        populatePlaylistOptions();
+        loadSong(currentSongIndex);
+
+        const player = document.getElementById("player");
+        const modeToggle = document.getElementById("modeToggle");
+
+        modeToggle.addEventListener("click", () => {
+            player.classList.toggle("dark-mode");
+        });
+    </script>
 </body>
 </html>
